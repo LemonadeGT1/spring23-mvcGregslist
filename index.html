@@ -12,26 +12,92 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="assets/style/main.css">
   <link rel="stylesheet" href="assets/style/style.css">
-  <title>gregslist</title>
+  <title>Michael's gregslist</title>
 </head>
 
 <body>
   <header>
     <nav class="navbar navbar-dark navbar-expand bg-dark text-light no-select">
       <a class="navbar-brand ms-3" href="#">
-        <img src="https://codeworks.blob.core.windows.net/public/assets/img/cw-mark.png" height="45" alt=""
-          loading="lazy">
-        <span class="ms-2">gregslist</span>
+        <!-- <img src="https://codeworks.blob.core.windows.net/public/assets/img/cw-mark.png" height="45" alt=""
+          loading="lazy"> -->
+        <span class="ms-2"><span class="mdi mdi-playlist-star"></span> Michael's gregslist</span>
       </a>
       <div class="btn px-3 py-2 rounded fs-3" onclick="app.carsController.showCars()">🚗</div>
       <div class="btn px-3 py-2 rounded fs-3" onclick="app.housesController.showHouses()">🏠</div>
+      <div class="btn px-3 py-2 rounded fs-3" onclick="app.jobsController.showJobs()">🛠️</div>
     </nav>
   </header>
   <main>
     <div class="container-fluid">
       <!-- SECTION car form -->
       <section class="row justify-content-center">
-        <div id="form" class="col-12 col-md-8">
+        <div id="form" class="col-12 col-md-8 p-3">
+
+          <!-- <form onsubmit="app.JobsController.createJob()" class="row bg-white rounded elevation-2 p-4">
+            <h3>List a Job</h3>
+            <div class="mb-2 col-12">
+              <label for="title">Title</label>
+              <input type="text" name="title" id="title" class="form-control" maxlength="50">
+            </div>
+            <div class="mb-2 col-12">
+              <label for="description">Description</label>
+              <input type="text" name="description" id="description" class="form-control" maxlength="50">
+            </div>
+            <div class="mb-2 col-6">
+              <label for="salary">Salary</label>
+              <input type="number" name="salary" id="salary" class="form-control" required min="1">
+            </div>
+            <div class="col-6 text-end mt-3">
+              <button class="btn" type="button">cancel</button>
+              <button class="btn btn-primary" type="submit">submit</button>
+            </div>
+          </form> -->
+
+
+
+          <!-- <form onsubmit="app.HousesController.createHouse()" class="row bg-white rounded elevation-2 p-4">
+            <h3>List a House</h3>
+            <div class="mb-2 col-3">
+              <label for="year">Year Built</label>
+              <input type="number" name="year" id="year" class="form-control" required min="1600" max="2050"
+                value="2000">
+            </div>
+            <div class="mb-2 col-3">
+              <label for="bedrooms">Bedrooms</label>
+              <input type="number" name="bedrooms" id="bedrooms" class="form-control" required minlength="3"
+                maxlength="10" placeholder="1">
+            </div>
+            <div class="mb-2 col-3">
+              <label for="bathrooms">Bathrooms</label>
+              <input type="number" name="bathrooms" id="bathrooms" class="form-control" placeholder="1" required>
+            </div>
+            <div class="mb-2 col-3">
+              <label for="sqft">Square Feet</label>
+              <input type="number" name="sqft" id="sqft" class="form-control" placeholder="50" required min="50">
+            </div>
+
+            <div class="mb-2 col-12">
+              <label for="img">Image URL</label>
+              <input type="url" name="img" id="img" class="form-control" required
+                placeholder="please enter a url for an image...">
+            </div>
+            <div class="mb-2 col-12">
+              <label for="description">Description</label>
+              <input type="text" name="description" id="description" class="form-control" maxlength="50">
+            </div>
+
+            <div class="mb-2 col-6">
+              <label for="price">Price</label>
+              <input type="number" name="price" id="price" class="form-control" required min="1">
+            </div>
+            <div class="col-6 text-end mt-3">
+              <button class="btn" type="button">cancel</button>
+              <button class="btn btn-primary" type="submit">submit</button>
+            </div>
+
+          </form> -->
+
           <!-- NOTE label labels the input, for points to the input's id so they are tied, name makes the input grab-able in js -->
 
           <!-- <form onsubmit="app.carsController.createCar()" class="row bg-white rounded elevation-2 p-4">
@@ -78,9 +144,9 @@
       </section>
 
       <!-- SECTION car listings -->
-      <section id="listings" class="row g-2">
+      <section id="listings" class="row g-2 p-2">
 
-        <!-- car tempalte -->
+        <!-- car template -->
         <!-- <div class="col-6 col-md-4">
           <div class="card elevation-2">
             <img
@@ -96,12 +162,40 @@
         </div> -->
         <!--  -->
 
+        <!-- // STUB - House Listings -->
+        <!--   <div class="col-md-4 col-12 houseCard p-2 m-2 rounded">
+          <div class="card elevation-2" style="background-image: url('${this.imgUrl}');"></div>
+          <div class="p-2">
+            <h5 class="text-start border-bottom-border-dark">${this.name}</h5>
+
+            <div class="row">
+              <div class="col-4 text-center"><p>Bedrooms</p></div>
+              <div class="col-4 text-center"><p>Baths</p></div>
+              <div class="col-4 text-center"><p>Square Feet</p></div>
+            </div>
+            <div class="row">
+              <div class="col-4 text-center"><h5><span>${this.bedrooms}</span></h5></div>
+              <div class="col-4 text-center"><h5><span>${this.bathrooms}</span></h5></div>
+              <div class="col-4 text-center"><h5><span>${this.sqft.toLocaleString()}</span></h5></div>
+            </div>
+            <div class="row">
+              <div class="col-12"><p>${this.description}</p></div>
+            </div>
+
+            <div class="row">
+              <div class="col-12 text-end"><h4><span class="mdi mdi-currency-usd"></span>${this.price.toLocaleString()}</h4></div>
+            </div>
+          </div>
+        </div> -->
+
+
+
       </section>
     </div>
   </main>
   <footer class="bg-dark text-light">
     <div class="text-center no-select">
-      <p><small>Made with 💖 by CodeWorks</small></p>
+      <p><small>Made with 🚀 by Michael Patience</small></p>
     </div>
   </footer>
 

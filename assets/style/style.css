@@ -1,1 +1,18 @@
 /* BASIC STYLES HERE */
+
+
+.card {
+  min-height: 35vh;
+  background-position: center;
+  background-size: cover;
+}
+
+.houseCard,
+.jobCard {
+  background-color: white;
+}
+
+
+.jobCard.card {
+  height: 20vh;
+}

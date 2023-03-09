@@ -1,6 +1,7 @@
 import { Car } from "./Models/Car.js"
 import { House } from "./Models/House.js"
 import { Value } from "./Models/Value.js"
+import { Job } from "./Models/Job.js"
 import { EventEmitter } from "./Utils/EventEmitter.js"
 import { isValidProp } from "./Utils/isValidProp.js"
 import { loadState } from "./Utils/Store.js"
@@ -18,10 +19,24 @@ class AppState extends EventEmitter {
 
   cars = loadState('cars', [Car])
 
+
+
   /** @type {import('./Models/House').House[]} */
-  houses = [
-    new House({ color: '#fff' }), new House({ color: '#000' })
-  ]
+  // houses = [  new House('1974', 'Mid-Century Modern Single Family Home', 3, 2.5, 1400, 375000, 'Newly renovated mid-century modern home', 'https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465&q=80')]
+
+
+  houses = loadState('houses', [House])
+
+  activeHouse = {}
+
+
+  /** @type {import('./Models/Job').Job[]} */
+  //jobs = [new Job('title', 'lorem ipsum dolor sit amet consecteur', 120000)]
+  jobs = loadState('jobs', [Job])
+
+
+
+
 
   // NOTE super weird type case as an example
   /** @type {[Number, String, Number]} */
